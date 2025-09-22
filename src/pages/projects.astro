@@ -1,0 +1,17 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+---
+<Base title="Proyectos — Milton QM">
+  <Section title="Proyectos" subtitle="Selección de proyectos personales">
+    <div class="grid gap-4 md:grid-cols-2">
+      {projects.map(p => (
+        <Card title={p.data.title} summary={p.data.summary} href={p.data.href} tags={p.data.tags} />
+      ))}
+    </div>
+  </Section>
+</Base>

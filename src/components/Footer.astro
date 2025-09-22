@@ -1,0 +1,20 @@
+---
+import { withBase as to } from '../lib/paths';
+const links = {
+  linkedin: 'https://www.linkedin.com/in/milton-quintana-moreno-2b87a2162/',
+  github: 'https://github.com/mrqm30',
+  email: 'mailto:quintanamilton92@gmail.com'
+}
+---
+<footer class="mt-12 py-8 border-t border-[var(--border)]">
+  <div class="container-p flex flex-col md:flex-row items-center justify-between gap-4">
+    <p class="text-sm text-[var(--muted)]">&copy; {new Date().getFullYear()} Milton Quintana Moreno</p>
+    <nav class="flex items-center gap-4 text-sm">
+      <a href={links.linkedin} class="no-underline hover:underline">LinkedIn</a>
+      <a href={links.github} class="no-underline hover:underline">GitHub</a>
+      <a href={links.email} class="no-underline hover:underline">Email</a>
+      <a href={to('robots.txt')} class="no-underline hover:underline">Robots</a>
+      <a href={to('')} class="no-underline hover:underline">Inicio</a>
+    </nav>
+  </div>
+</footer>

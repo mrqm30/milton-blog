@@ -1,0 +1,13 @@
+---
+export interface Props { title:string; subtitle?:string }
+const { title, subtitle } = Astro.props;
+---
+<section class="my-12 animate-fade-in">
+  <header class="mb-5">
+    <h2 class="section-title">{title}</h2>
+    {subtitle && <p class="text-[var(--c-muted)] mt-1">{subtitle}</p>}
+  </header>
+  <div class="grid gap-5">
+    <slot />
+  </div>
+</section>

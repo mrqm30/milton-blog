@@ -1,0 +1,4 @@
+// /public/robots.txt
+User-agent: *
+Allow: /
+Sitemap: https://mrqm30.github.io/milton-blog/sitemap-index.xml

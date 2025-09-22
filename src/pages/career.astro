@@ -1,0 +1,15 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Timeline from '../components/Timeline.astro';
+
+const items = [
+  { role: 'Científico de Datos', org: '— (Agrega tu organización)', period: '2023–Presente', desc: 'Proyectos de analítica y ML.' },
+  { role: 'Ingeniero Físico', org: '— (Agrega tu organización)', period: '2018–2023', desc: 'Investigación y modelado numérico.' }
+];
+---
+<Base title="Vida profesional — Milton QM">
+  <Section title="Vida profesional" subtitle="Línea de tiempo">
+    <Timeline items={items} />
+  </Section>
+</Base>

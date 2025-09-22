@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+import Card from '../components/Card.astro';
+import { getCollection } from 'astro:content';
+
+const pubs = await getCollection('publications');
+---
+<Base title="Publicaciones — Milton QM">
+  <Section title="Publicaciones" subtitle="Artículos, preprints y notas técnicas">
+    <div class="grid gap-4">
+      {pubs.map(p => (
+        <Card
+          title={p.data.title}
+          summary={[p.data.venue, p.data.year].filter(Boolean).join(' · ')}
+          href={p.data.url}
+          tags={p.data.doi ? ['DOI'] : []}
+        />
+      ))}
+    </div>
+  </Section>
+</Base>

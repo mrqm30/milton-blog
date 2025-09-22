@@ -1,0 +1,16 @@
+---
+export interface Props { title:string; href?:string; summary?:string; tags?:string[] }
+const { title, href, summary, tags=[] } = Astro.props;
+import Tag from './Tag.astro';
+---
+<article class="card animate-scale-in">
+  {href ? (
+    <a href={href} class="link-clean">
+      <h3 class="mb-2 text-[var(--c-ink)]">{title}</h3>
+    </a>
+  ) : (
+    <h3 class="mb-2 text-[var(--c-ink)]">{title}</h3>
+  )}
+  {summary && <p class="text-sm text-[var(--c-muted)] mb-3">{summary}</p>}
+  {tags.length>0 && <div class="flex flex-wrap gap-2">{tags.map(t => <Tag text={t} />)}</div>}
+</article>

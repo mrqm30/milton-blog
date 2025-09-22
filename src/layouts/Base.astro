@@ -1,0 +1,91 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { withBase as to } from '../lib/paths';
+
+const title =
+  Astro.props.title ?? 'Milton Quintana Moreno — Científico de Datos';
+const description =
+  Astro.props.description ??
+  'Soy ingeniero físico de formación y científico de datos por convicción, amante de la programación y las matemáticas.';
+
+const SITE = 'https://mrqm30.github.io';
+const BASE = import.meta.env.BASE_URL;                   // p.ej. "/milton-blog/"
+const BASE_NO_SLASH = BASE.endsWith('/') ? BASE.slice(0, -1) : BASE; // "/milton-blog"
+const CANONICAL_URL = new globalThis.URL(BASE_NO_SLASH, SITE).toString();
+
+const author = {
+  name: 'Milton Quintana Moreno',
+  tagline: 'Científico de Datos',
+  email: 'quintanamilton92@gmail.com',
+  github: 'https://github.com/mrqm30',
+  linkedin: 'https://www.linkedin.com/in/milton-quintana-moreno-2b87a2162/',
+};
+---
+
+<html lang="es" class="min-h-full">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#091B29" />
+
+    <!-- Canonical -->
+    <link rel="canonical" href={CANONICAL_URL} />
+
+    <!-- Favicon -->
+    <link rel="icon" href={to('favicon.svg')} type="image/svg+xml" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Milton Quintana Moreno" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={CANONICAL_URL} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- JSON-LD Person -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        name: author.name,
+        jobTitle: author.tagline,
+        url: URL,
+        email: `mailto:${author.email}`,
+        sameAs: [author.github, author.linkedin]
+      })}
+    </script>
+
+    <!-- JSON-LD WebSite -->
+    <script type="application/ld+json">
+      {JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: 'Blog de Milton Quintana',
+        url: URL,
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${URL}?q={search_term_string}`,
+          'query-input': 'required name=search_term_string'
+        }
+      })}
+    </script>
+  </head>
+  <body class="min-h-full">
+    <header class="container-p py-4">
+      <Nav />
+    </header>
+    <main class="container-p pb-12">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

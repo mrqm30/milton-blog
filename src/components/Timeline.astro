@@ -1,0 +1,20 @@
+---
+export interface Item {
+  role: string;
+  org?: string;
+  period: string; // '2020–Presente'
+  desc?: string;
+}
+export interface Props { items: Item[] }
+const { items } = Astro.props;
+---
+<ul class="timeline">
+  {items.map((it) => (
+    <li class="relative mb-6 pl-4">
+      <div class="dot" style="top:.35rem;"></div>
+      <h3 class="font-semibold">{it.role}{it.org ? ` · ${it.org}` : ''}</h3>
+      <p class="text-xs text-[var(--c-muted)] mb-1">{it.period}</p>
+      {it.desc && <p class="text-sm">{it.desc}</p>}
+    </li>
+  ))}
+</ul>

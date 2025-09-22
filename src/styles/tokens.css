@@ -1,0 +1,23 @@
+/* Paleta + tokens (light/dark) */
+:root{
+  --c-ink:#091B29; --c-bg:#EDEDED; --c-muted:#666970;
+  --c-accent:#2F3D47; --c-accent-2:#7A7982; --c-border:#8A8888;
+
+  --surface:#FFFFFF; --surface-2:#F7F7F7;
+  --shadow:0 10px 30px rgba(9,27,41,.08);
+  --blur:saturate(180%) blur(10px);
+  --hairline: color-mix(in oklab, var(--c-border) 55%, transparent);
+
+  --grad-1: linear-gradient(90deg,#2F3D47 0%,#7A7982 100%);
+
+  --radius:16px; --r-sm:10px;
+  --space-1:.25rem; --space-2:.5rem; --space-3:.75rem; --space-4:1rem;
+  --space-6:1.5rem; --space-8:2rem; --space-12:3rem;
+}
+
+.dark{
+  --c-ink:#EDEDED; --c-bg:#091B29; --c-muted:#8A8888;
+  --c-accent:#2F3D47; --c-accent-2:#7A7982; --c-border:#2F3D47;
+  --surface:#0f2433; --surface-2:#0b1a24;
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}

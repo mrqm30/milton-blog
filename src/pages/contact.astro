@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import Section from '../components/Section.astro';
+const email = 'quintanamilton92@gmail.com';
+const linkedin = 'https://www.linkedin.com/in/milton-quintana-moreno-2b87a2162/';
+const github = 'https://github.com/mrqm30';
+---
+<Base title="Contacto — Milton QM">
+  <Section title="Contacto" subtitle="Hablemos">
+    <ul class="grid gap-2">
+      <li><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></li>
+      <li><strong>LinkedIn:</strong> <a href={linkedin}>Perfil</a></li>
+      <li><strong>GitHub:</strong> <a href={github}>@mrqm30</a></li>
+    </ul>
+  </Section>
+</Base>

@@ -1,11 +1,33 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Base from '../layouts/Base.astro';
+import { withBase as to, samePath } from '../lib/paths';
 ---
+<Base>
+  <section class="mt-8 sm:mt-12 text-center">
+    <h1 class="mb-3">
+      <span class="bg-clip-text text-transparent" style="background: var(--grad-1);">
+        Milton Quintana Moreno
+      </span>
+    </h1>
+    <p class="text-lg text-[var(--c-muted)] mb-8">
+      Científico de Datos · Ingeniero Físico por formación
+    </p>
+    <div class="flex items-center justify-center gap-3">
+      <a class="btn btn-primary" href={to('about')}>Sobre mí</a>
+      <a class="btn btn-ghost" href={to('projects')}>Proyectos</a>
+    </div>
+  </section>
 
-<Layout>
-	<Welcome />
-</Layout>
+  <section class="my-12 grid gap-4 md:grid-cols-2">
+    <div class="surface p-6">
+      <h3 class="mb-2">Últimos proyectos</h3>
+      <p class="text-sm text-[var(--c-muted)]">Explora mis pipelines, dashboards y experimentos de ML.</p>
+      <a class="btn btn-ghost mt-4" href={to('projects')}>Ver proyectos</a>
+    </div>
+    <div class="surface p-6">
+      <h3 class="mb-2">Publicaciones</h3>
+      <p class="text-sm text-[var(--c-muted)]">Modelado numérico y notas técnicas.</p>
+      <a class="btn btn-ghost mt-4" href={to('publications')}>Ver publicaciones</a>
+    </div>
+  </section>
+</Base>
