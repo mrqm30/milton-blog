@@ -4,17 +4,26 @@ const links = {
   linkedin: 'https://www.linkedin.com/in/milton-quintana-moreno-2b87a2162/',
   github: 'https://github.com/mrqm30',
   email: 'mailto:quintanamilton92@gmail.com'
-}
+};
 ---
-<footer class="mt-12 py-8 border-t border-[var(--border)]">
-  <div class="container-p flex flex-col md:flex-row items-center justify-between gap-4">
-    <p class="text-sm text-[var(--muted)]">&copy; {new Date().getFullYear()} Milton Quintana Moreno</p>
-    <nav class="flex items-center gap-4 text-sm">
-      <a href={links.linkedin} class="no-underline hover:underline">LinkedIn</a>
-      <a href={links.github} class="no-underline hover:underline">GitHub</a>
-      <a href={links.email} class="no-underline hover:underline">Email</a>
-      <a href={to('robots.txt')} class="no-underline hover:underline">Robots</a>
-      <a href={to('')} class="no-underline hover:underline">Inicio</a>
+<footer class="mt-14 border-t border-[var(--hairline)]">
+  <div class="container-p py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="flex items-center gap-3 font-mono text-sm text-[var(--c-muted)]">
+      <img src={to('avatar.svg')} width="18" height="18" alt="Logo" class="logo-ring" />
+      <span>© {new Date().getFullYear()} Milton Quintana Moreno</span>
+    </div>
+
+    <nav class="font-mono text-sm">
+      <a class="link-clean" href={links.linkedin}>LinkedIn</a>
+      <span class="mx-2 opacity-50">·</span>
+      <a class="link-clean" href={links.github}>GitHub</a>
+      <span class="mx-2 opacity-50">·</span>
+      <a class="link-clean" href={links.email}>Email</a>
+      <span class="mx-2 opacity-50">·</span>
+      <a class="link-clean" href={to('robots.txt')}>Robots</a>
+      <span class="mx-2 opacity-50">·</span>
+      <a class="link-clean" href={to('')}>Inicio</a>
     </nav>
   </div>
 </footer>
+

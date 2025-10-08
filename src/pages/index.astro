@@ -1,33 +1,63 @@
 ---
 import Base from '../layouts/Base.astro';
-import { withBase as to, samePath } from '../lib/paths';
+import { withBase as to } from '../lib/paths';
 ---
 <Base>
   <section class="mt-8 sm:mt-12 text-center">
-    <h1 class="mb-3">
+    <div class="kicker"></div>
+    <h1 class="mb-2">
       <span class="bg-clip-text text-transparent" style="background: var(--grad-1);">
         Milton Quintana Moreno
       </span>
     </h1>
-    <p class="text-lg text-[var(--c-muted)] mb-8">
-      Científico de Datos · Ingeniero Físico por formación
+    <p class="text-lg text-[var(--c-muted)] mb-6 font-mono">
+      Científico de Datos — Ingeniero Físico
     </p>
-    <div class="flex items-center justify-center gap-3">
+
+    <!-- Terminal hero -->
+    <div class="term-header">
+        <div class="term-dots">
+          <span class="term-dot red"></span>
+          <span class="term-dot yellow"></span>
+          <span class="term-dot green"></span>
+        </div>
+        <span class="term-title">~/milton-blog</span>
+        <div class="ml-auto flex items-center gap-2 pr-1">
+          <!-- decorativo: sin alt para que no salga texto si falla -->
+          <img src={to('avatar.svg')} width="24" height="24" alt="" class="logo-ring logo-img" />
+        </div>
+    </div>
+      <div class="term-body text-left">
+        <div class="prompt"><span class="ps">$</span><code>whoami</code></div>
+        <p class="mt-1 mb-3">Milton Quintana · Científico de Datos</p>
+        <div class="prompt"><span class="ps">$</span><code>ls ./</code></div>
+        <p class="mt-1">about/ projects/ publications/ skills/ contact/</p>
+        <div class="prompt"><span class="ps">$</span><span class="cursor-blink" aria-hidden="true"></span></div>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center gap-3 mt-6">
       <a class="btn btn-primary" href={to('about')}>Sobre mí</a>
       <a class="btn btn-ghost" href={to('projects')}>Proyectos</a>
     </div>
   </section>
 
-  <section class="my-12 grid gap-4 md:grid-cols-2">
-    <div class="surface p-6">
+  <section class="my-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3 container-p">
+    <div class="card">
       <h3 class="mb-2">Últimos proyectos</h3>
-      <p class="text-sm text-[var(--c-muted)]">Explora mis pipelines, dashboards y experimentos de ML.</p>
+      <p class="text-sm text-[var(--c-muted)]">Pipelines, dashboards y ML experiments.</p>
       <a class="btn btn-ghost mt-4" href={to('projects')}>Ver proyectos</a>
     </div>
-    <div class="surface p-6">
+    <div class="card">
       <h3 class="mb-2">Publicaciones</h3>
       <p class="text-sm text-[var(--c-muted)]">Modelado numérico y notas técnicas.</p>
       <a class="btn btn-ghost mt-4" href={to('publications')}>Ver publicaciones</a>
     </div>
+    <div class="card">
+      <h3 class="mb-2">Habilidades</h3>
+      <p class="text-sm text-[var(--c-muted)]">Stack de datos, ML y web.</p>
+      <a class="btn btn-ghost mt-4" href={to('skills')}>Ver habilidades</a>
+    </div>
   </section>
 </Base>
+

@@ -1,22 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
-import Card from '../components/Card.astro';
 import { getCollection } from 'astro:content';
 
 const pubs = await getCollection('publications');
 ---
 <Base title="Publicaciones — Milton QM">
   <Section title="Publicaciones" subtitle="Artículos, preprints y notas técnicas">
-    <div class="grid gap-4">
-      {pubs.map(p => (
-        <Card
-          title={p.data.title}
-          summary={[p.data.venue, p.data.year].filter(Boolean).join(' · ')}
-          href={p.data.url}
-          tags={p.data.doi ? ['DOI'] : []}
-        />
-      ))}
+    <div class="surface p-2 sm:p-4">
+      <ul class="divide-y divide-[var(--hairline)]">
+        {pubs.map(p => {
+          const meta = [p.data.venue, p.data.year].filter(Boolean).join(' · ');
+          return (
+            <li class="py-4 px-3 hover:bg-[color-mix(in_oklab,var(--c-accent-2)_10%,transparent)] transition">
+              <h3 class="text-base font-semibold">
+                {p.data.url ? <a class="link-clean" href={p.data.url}>{p.data.title}</a> : p.data.title}
+              </h3>
+              <div class="mt-1 text-xs text-[var(--c-muted)] font-mono">
+                {meta || '—'}
+                {p.data.doi && <> · doi: <code>{p.data.doi}</code></>}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   </Section>
 </Base>
+

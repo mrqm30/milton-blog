@@ -1,16 +1,30 @@
 ---
 import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
+import { withBase as to } from '../lib/paths';
+
 const email = 'quintanamilton92@gmail.com';
 const linkedin = 'https://www.linkedin.com/in/milton-quintana-moreno-2b87a2162/';
 const github = 'https://github.com/mrqm30';
 ---
 <Base title="Contacto — Milton QM">
-  <Section title="Contacto" subtitle="Hablemos">
-    <ul class="grid gap-2">
-      <li><strong>Email:</strong> <a href={`mailto:${email}`}>{email}</a></li>
-      <li><strong>LinkedIn:</strong> <a href={linkedin}>Perfil</a></li>
-      <li><strong>GitHub:</strong> <a href={github}>@mrqm30</a></li>
-    </ul>
+  <Section title="Contacto" subtitle="Conversemos">
+    <div class="grid gap-5 md:grid-cols-2">
+      <div class="surface p-6">
+        <ul class="grid gap-2">
+          <li><strong>Email:</strong> <a class="link-clean" href={`mailto:${email}`}>{email}</a></li>
+          <li><strong>LinkedIn:</strong> <a class="link-clean" href={linkedin}>Perfil</a></li>
+          <li><strong>GitHub:</strong> <a class="link-clean" href={github}>@mrqm30</a></li>
+        </ul>
+      </div>
+      <div class="surface p-6">
+        <h3 class="mb-2">También puedes…</h3>
+        <div class="flex flex-wrap gap-3">
+          <a class="btn btn-primary" href={to('projects')}>Ver proyectos</a>
+          <a class="btn btn-ghost" href={to('publications')}>Ver publicaciones</a>
+        </div>
+      </div>
+    </div>
   </Section>
 </Base>
+

@@ -5,7 +5,10 @@ import Tag from '../components/Tag.astro';
 const list = ["Programación", "Matemáticas", "Semiconductores", "Ciencia de datos", "Linux", "Entrenamiento"];
 ---
 <Base title="Intereses — Milton QM">
-  <Section title="Intereses">
-    <div class="flex flex-wrap gap-2">{list.map(i => <Tag text={i} />)}</div>
+  <Section title="Intereses" subtitle="Temas que me motivan">
+    <div class="surface p-5">
+      <div class="flex flex-wrap gap-2">{list.map(i => <Tag text={i} />)}</div>
+    </div>
   </Section>
 </Base>
+

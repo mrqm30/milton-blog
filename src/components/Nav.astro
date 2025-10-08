@@ -4,7 +4,7 @@ import { withBase as to, samePath } from '../lib/paths';
 const links = [
   { href: '', label: 'Inicio' },
   { href: 'about', label: 'Sobre mí' },
-  { href: 'career', label: 'Vida profesional' },
+  { href: 'career', label: 'Profesional' },
   { href: 'projects', label: 'Proyectos' },
   { href: 'publications', label: 'Publicaciones' },
   { href: 'skills', label: 'Habilidades' },
@@ -15,55 +15,66 @@ const links = [
 const current = Astro.url.pathname;
 const isActive = (p:string) => samePath(current, to(p));
 ---
-<nav class="sticky top-3 z-50 container-p animate-fade-in">
-  <div class="glass flex items-center justify-between gap-4 px-3 py-2">
-    <a href={to('')} class="no-underline font-semibold text-[var(--c-ink)]">Milton QM</a>
+<nav class="sticky top-3 z-50 container-p">
+  <div class="glass px-3 py-2">
+    <div class="flex items-center justify-between gap-4">
+      <a href={to('')} class="flex items-center gap-3 no-underline">
+        <img src={to('favicon.svg')} width="28" height="28" alt="Logo Milton QM" class="logo-ring" />
+        <span class="font-semibold text-[var(--c-ink)]">Milton QM</span>
+      </a>
 
-    <details class="md:hidden">
-      <summary class="cursor-pointer px-3 py-2 rounded-lg border border-[var(--c-border)]">Menú</summary>
-      <ul class="mt-2 space-y-2 p-2 surface">
+      <details class="md:hidden">
+        <summary class="cursor-pointer px-3 py-2 rounded-lg border border-[var(--hairline)]">Menú</summary>
+        <ul class="mt-2 space-y-2 p-2 surface">
+          {links.map(l => (
+            <li>
+              <a href={to(l.href)} aria-current={isActive(l.href)?'page':undefined}
+                 class={`nav-pill nav-underline link-clean ${isActive(l.href)?'is-active bg-[var(--c-accent)] text-white':'hover:bg-[var(--c-accent-2)]/12'}`}>
+                {l.label}
+              </a>
+            </li>
+          ))}
+          <li class="pt-2 border-t border-[var(--hairline)] grid grid-cols-2 gap-2">
+            <button class="px-3 py-2 rounded-lg border border-[var(--hairline)]" onclick="toggleSkin()">🕹️ Retro</button>
+          </li>
+        </ul>
+      </details>
+
+      <ul class="hidden md:flex items-center gap-1">
         {links.map(l => (
           <li>
             <a href={to(l.href)} aria-current={isActive(l.href)?'page':undefined}
-               class={`nav-pill nav-underline link-clean ${isActive(l.href) ? 'is-active bg-[var(--c-accent)] text-white' : 'hover:bg-[var(--c-accent-2)]/12'}`}>
+               class={`nav-pill nav-underline link-clean ${isActive(l.href)?'is-active bg-[var(--c-accent)] text-white':'hover:bg-[var(--c-accent-2)]/12'}`}>
               {l.label}
             </a>
           </li>
         ))}
-        <li class="pt-2 border-t border-[var(--c-border)]">
-          <button class="w-full px-3 py-2 rounded-lg border border-[var(--c-border)]" onclick="(function(){
-            const el=document.documentElement; el.classList.toggle('dark');
-            localStorage.setItem('theme', el.classList.contains('dark')?'dark':'light');
-          })()">🌓 Tema</button>
+        <li class="flex items-center gap-2 ml-2">
+          <button class="px-3 py-2 rounded-lg border border-[var(--hairline)]" onclick="toggleSkin()">🕹️</button>
         </li>
       </ul>
-    </details>
-
-    <ul class="hidden md:flex items-center gap-1">
-      {links.map(l => (
-        <li>
-          <a href={to(l.href)} aria-current={isActive(l.href)?'page':undefined}
-             class={`nav-pill nav-underline link-clean ${isActive(l.href) ? 'is-active bg-[var(--c-accent)] text-white' : 'hover:bg-[var(--c-accent-2)]/12'}`}>
-            {l.label}
-          </a>
-        </li>
-      ))}
-      <li>
-        <button class="ml-1 px-3 py-2 rounded-lg border border-[var(--c-border)]" onclick="(function(){
-          const el=document.documentElement; el.classList.toggle('dark');
-          localStorage.setItem('theme', el.classList.contains('dark')?'dark':'light');
-        })()">🌓</button>
-      </li>
-    </ul>
+    </div>
   </div>
 
   <script is:inline>
     (function(){
-      const pref=localStorage.getItem('theme');
-      if(pref){ if(pref==='dark') document.documentElement.classList.add('dark'); }
-      else if(window.matchMedia('(prefers-color-scheme: dark)').matches){
+      const pref = localStorage.getItem('theme');
+      if(pref === 'dark') document.documentElement.classList.add('dark');
+      else if(!pref && window.matchMedia('(prefers-color-scheme: dark)').matches){
         document.documentElement.classList.add('dark');
       }
+      const skin = localStorage.getItem('skin');
+      if(skin === 'retro') document.documentElement.classList.add('retro');
     })();
+    function toggleTheme(){
+      const el = document.documentElement;
+      el.classList.toggle('dark');
+      localStorage.setItem('theme', el.classList.contains('dark') ? 'dark' : 'light');
+    }
+    function toggleSkin(){
+      const el = document.documentElement;
+      el.classList.toggle('retro');
+      localStorage.setItem('skin', el.classList.contains('retro') ? 'retro' : 'default');
+    }
   </script>
 </nav>

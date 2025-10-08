@@ -2,7 +2,5 @@
 export interface Props { text:string }
 const { text } = Astro.props;
 ---
-<span class="inline-flex items-center rounded-full border border-[var(--hairline)] px-2 py-1 text-xs text-[var(--c-muted)]"
-      style="background: color-mix(in oklab, var(--c-accent-2) 12%, transparent);">
-  {text}
-</span>
+<span class="chip">[{text}]</span>
+

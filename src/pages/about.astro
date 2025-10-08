@@ -3,10 +3,24 @@ import Base from '../layouts/Base.astro';
 import Section from '../components/Section.astro';
 ---
 <Base title="Sobre mí — Milton QM">
-  <Section title="Sobre mí" subtitle="Breve presentación">
-    <div class="prose max-w-none">
-      <p>Soy ingeniero físico de formación y científico de datos por convicción, amante de la programación y las matemáticas.</p>
-      <p>Este blog reúne mi trabajo, intereses y publicaciones técnicas.</p>
+  <Section title="Sobre mí" subtitle="Quién soy en pocas líneas">
+    <div class="surface p-6">
+      <p class="mb-3">Soy ingeniero físico de formación y científico de datos por convicción, amante de la programación y las matemáticas.</p>
+      <p class="mb-0">Este blog reúne mi trabajo, intereses y publicaciones técnicas.</p>
+    </div>
+  </Section>
+
+  <Section title="Manifiesto" subtitle="Valores y forma de trabajar">
+    <div class="grid gap-5 md:grid-cols-2">
+      <div class="surface p-6">
+        <h3 class="mb-2">Enfoque</h3>
+        <p class="text-sm text-[var(--c-muted)]">Datos primero, simplicidad, reproducibilidad y performance.</p>
+      </div>
+      <div class="surface p-6">
+        <h3 class="mb-2">Código</h3>
+        <p class="text-sm text-[var(--c-muted)]">Pipelines limpios, tests ligeros, documentación concisa.</p>
+      </div>
     </div>
   </Section>
 </Base>
+

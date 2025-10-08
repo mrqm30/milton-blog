@@ -1,12 +1,12 @@
 ---
 import Base from '../layouts/Base.astro';
-
-import { withBase as to, samePath } from '../lib/paths';
+import { withBase as to } from '../lib/paths';
 ---
 <Base title="404 — Página no encontrada">
-  <section class="text-center my-12">
-    <h1 class="text-3xl font-bold mb-2">404</h1>
-    <p class="mb-6">La página que buscas no existe.</p>
-    <a class="btn" href={to('')}>Volver al inicio</a>
+  <section class="text-center my-16">
+    <h1 class="mb-3">404</h1>
+    <p class="mb-6 text-[var(--c-muted)] font-mono"># ruta no encontrada</p>
+    <a class="btn btn-primary" href={to('')}>Volver al inicio</a>
   </section>
 </Base>
+
