@@ -1,40 +1,47 @@
 /* /src/styles/tokens.css */
-/* Paleta base actual + modo retro con variables. */
-:root{
-  /* Base moderna (oscura sobria) */
-  --c-ink:#EDEDED; --c-bg:#091B29;
-  --c-muted:#8A8888;
-  --c-accent:#2F3D47; --c-accent-2:#7A7982; --c-border:#2F3D47;
-  --surface:#0f2433; --surface-2:#0b1a24;
 
-  --neon:#7CFFB2;                /* verde suave por defecto */
-  --neon-weak: color-mix(in oklab, var(--neon) 35%, transparent);
-  --hairline: color-mix(in oklab, var(--c-border) 55%, transparent);
+:root {
+  /* Fondo y texto principal */
+  --c-bg: #0A1118;
+  --c-ink: #E8EEF2;
+  --c-muted: #92A2AF;
+
+  /* Acentos fríos científicos */
+  --c-accent: #13212F;
+  --c-accent-2: #233545;
+  --c-border: #1D2F3A;
+
+  /* Superficies */
+  --surface: #0F1A23;
+  --surface-2: #0C141C;
+
+  /* Neón científico (bajo, no gamer) */
+  --neon: #7CFBD1;
+  --neon-weak: color-mix(in oklab, var(--neon) 18%, transparent);
+
+  --hairline: color-mix(in oklab, var(--c-border) 45%, transparent);
   --grad-1: linear-gradient(90deg, var(--c-accent) 0%, var(--c-accent-2) 100%);
 
-  --blur:saturate(180%) blur(10px);
-  --shadow:0 10px 30px rgba(0,0,0,.45);
+  /* Profundidad y forma */
+  --blur: saturate(140%) blur(8px);
+  --shadow: 0 4px 14px rgba(0, 0, 0, .22);
 
-  --radius:16px; --r-sm:10px;
+  --radius: 12px;
+  --r-sm: 8px;
 }
 
-/* Tema “retro” estilo terminal/retro-arcade
-   Actívalo añadiendo la clase .retro en <html> (lo hacemos desde el Nav). */
-.retro{
-  --c-ink:#E8FFE8;
-  --c-bg:#081114;           /* fondo muy oscuro con tinte verde */
-  --c-muted:#A2B5A2;
-  --c-accent:#1f3a34;       /* verde petróleo */
-  --c-accent-2:#f2dd79;     /* ámbar suave para detalles retro */
-  --c-border:#1f3b3b;
+/* Tema alterno “laboratorio retro” opcional */
+.retro {
+  --c-bg: #060E0F;
+  --c-ink: #E7FFF7;
+  --c-muted: #ADBEBA;
 
-  --surface:#0c1a1a;
-  --surface-2:#0b1616;
+  --c-accent: #122523;
+  --c-accent-2: #1C3B36;
 
-  --neon:#80FFBF;                   /* verde neón */
-  --neon-weak: color-mix(in oklab, var(--neon) 40%, transparent);
-  --hairline: color-mix(in oklab, var(--neon) 22%, transparent);
-  --grad-1: linear-gradient(90deg, var(--neon) 0%, var(--c-accent-2) 100%);
+  --surface: #0C1917;
+
+  --neon: #6BFFD8;
+  --neon-weak: color-mix(in oklab, var(--neon) 20%, transparent);
+  --hairline: color-mix(in oklab, var(--neon) 12%, transparent);
 }
-
-

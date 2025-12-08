@@ -1,18 +1,55 @@
 ---
-import Base from '../layouts/Base.astro';
-import Section from '../components/Section.astro';
-import Timeline from '../components/Timeline.astro';
+import Base from "../layouts/Base.astro";
+import Section from "../components/Section.astro";
+import Timeline from "../components/Timeline.astro";
 
 const items = [
-  { role: 'Científico de Datos', org: '— (Agrega tu organización)', period: '2023–Presente', desc: 'Proyectos de analítica y ML.' },
-  { role: 'Ingeniero Físico', org: '— (Agrega tu organización)', period: '2018–2023', desc: 'Investigación y modelado numérico.' }
+  {
+    role: "Arquitecto de Datos",
+    org: "— (Grupo Salinas)",
+    period: "2024-actualidad",
+    desc: "Diseño, desarrollo e implementación de arquitecturas de bases de datos para sistemas big data con la metodología Data Vault 2.0 usando tecnologías PySpark, Hackolade, Hive.",
+  },
+  {
+    role: "Científico de Datos",
+    org: "— (Código 21)",
+    period: "2023-2024",
+    desc: "Desarrollé un modelo LDA para análisis y clasificación de texto, implementé un pipeline de web scraping para redes sociales (Facebook, X, TikTok e Instagram) y construí un dashboard de KPIs para visualizar incidencia delictiva en México.",
+  },
+  {
+    role: "Científico de Datos",
+    org: "— (SMX Financial)",
+    period: "2022-2023",
+    desc: "Implementé un modelo XGBoost aplicado a series de timepo para predecir la facturación de los clientes, creación de un dashboard con Dash Plotly, implementación de una API con FastAPI para los modelos de series de tiempo(arima, regresión linean, auto regresivo, XGBoost.).",
+  },
+  {
+    role: "Científico de Datos",
+    org: "— (Tesorería de la CDMX)",
+    period: "2021-2022",
+    desc: "Implementé un pipeline de web scraping para datos de Uber Eats y desplegué en producción un modelo de árboles de decisión para predecir el pago de tenencia vehicular en CDMX.",
+  },
+  {
+    role: "Mestría en Física",
+    org: "— (Instituto Politécnico Nacional)",
+    period: "2019.2021",
+    desc: "Física computacional y DFT",
+  },
+  {
+    role: "Ingeniero Físico",
+    org: "— (Universidad Autónoma Metropolitana)",
+    period: "2015–2019",
+    desc: "Investigación y modelado numérico.",
+  },
 ];
 ---
+
 <Base title="Vida profesional — Milton QM">
-  <Section title="Vida profesional" subtitle="Trayectoria en una línea de tiempo">
+  <Section
+    title="Vida profesional"
+    subtitle="Trayectoria en una línea de tiempo"
+  >
     <div class="surface p-6">
       <Timeline items={items} />
     </div>
   </Section>
 </Base>
-
