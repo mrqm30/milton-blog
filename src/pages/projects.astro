@@ -10,7 +10,13 @@ const projects = await getCollection('projects');
   <Section title="Proyectos" subtitle="Selección de proyectos personales">
     <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map(p => (
-        <Card title={p.data.title} summary={p.data.summary} href={p.data.href} tags={p.data.tags} />
+      <Card 
+      title={p.data.title} 
+      summary={p.data.summary} 
+      href={p.data.href} 
+      tags={p.data.tags}
+      href={`${import.meta.env.BASE_URL}/projects/${p.slug}`}
+      />
       ))}
     </div>
   </Section>

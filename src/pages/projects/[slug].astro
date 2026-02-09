@@ -1,0 +1,38 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await project.render();
+---
+
+<Base title={project.data.title}>
+  <article class="prose prose-invert max-w-4xl mx-auto py-16">
+    <h1>{project.data.title}</h1>
+
+    <p class="text-muted-foreground">
+      {project.data.summary}
+    </p>
+
+    <div class="flex flex-wrap gap-2 my-6">
+      {project.data.tags.map(tag => (
+        <span class="px-3 py-1 text-sm rounded-full bg-muted">
+          {tag}
+        </span>
+      ))}
+    </div>
+
+    <hr class="my-8" />
+
+    <Content />
+  </article>
+</Base>

@@ -10,6 +10,7 @@
     "lint": "echo \"(Opcional) Añade ESLint/Prettier si lo deseas\" && exit 0"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^6.3.10",
     "@astrojs/sitemap": "^3.1.6",
     "astro": "^4.12.0"
   },
