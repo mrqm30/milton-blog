@@ -6,9 +6,12 @@ import { withBase as to } from '../lib/paths';
 
 const title =
   Astro.props.title ?? 'Milton Quintana Moreno — Científico de Datos';
+
 const description =
   Astro.props.description ??
   'Soy ingeniero físico de formación y científico de datos por convicción, amante de la programación y las matemáticas.';
+
+const heroImage = Astro.props.heroImage ?? null;
 
 const SITE = 'https://mrqm30.github.io';
 const BASE = import.meta.env.BASE_URL;                   // p.ej. "/milton-blog/"
@@ -32,6 +35,10 @@ const author = {
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="theme-color" content="#091B29" />
+
+    {heroImage && (
+    <meta property="og:image" content={to(heroImage)} />
+    )}
 
     <!-- Canonical -->
     <link rel="canonical" href={CANONICAL_URL} />
@@ -78,13 +85,25 @@ const author = {
         }
       })}
     </script>
+
   </head>
   <body class="min-h-full">
     <a href="#main" class="skip-link">Saltar al contenido</a>
     <Nav />
-    <main id="main" class="container-p pb-12">
-      <slot />
-    </main>
+<main id="main" class="container-p pb-12">
+  {heroImage && (
+    <figure class="mb-10">
+      <img
+        src={to(heroImage)}
+        alt={title}
+        class="w-full rounded-2xl shadow-lg"
+        loading="eager"
+      />
+    </figure>
+  )}
+
+  <slot />
+</main>
     <Footer />
   </body>
 </html>
