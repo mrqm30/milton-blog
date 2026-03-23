@@ -16,7 +16,7 @@ const current = Astro.url.pathname;
 const isActive = (p:string) => samePath(current, to(p));
 ---
 <nav class="sticky top-3 z-50 container-p">
-  <div class="glass px-3 py-2">
+  <div class="glass px-4 py-3">
     <div class="flex items-center justify-between gap-4">
       <a href={to('')} class="flex items-center gap-3 no-underline">
         <img src={to('favicon.svg')} width="28" height="28" alt="Logo Milton QM" class="logo-ring" />
@@ -24,19 +24,16 @@ const isActive = (p:string) => samePath(current, to(p));
       </a>
 
       <details class="md:hidden">
-        <summary class="cursor-pointer px-3 py-2 rounded-lg border border-[var(--hairline)]">Menú</summary>
-        <ul class="mt-2 space-y-2 p-2 surface">
+        <summary class="cursor-pointer px-3 py-2 rounded border border-[var(--hairline)]">Menú</summary>
+        <ul class="mt-2 space-y-1 p-2 surface rounded-lg">
           {links.map(l => (
             <li>
               <a href={to(l.href)} aria-current={isActive(l.href)?'page':undefined}
-                 class={`nav-pill nav-underline link-clean ${isActive(l.href)?'is-active bg-[var(--c-accent)] text-white':'hover:bg-[var(--c-accent-2)]/12'}`}>
+                 class={`nav-pill link-clean block ${isActive(l.href)?'is-active':''}`}>
                 {l.label}
               </a>
             </li>
           ))}
-          <li class="pt-2 border-t border-[var(--hairline)] grid grid-cols-2 gap-2">
-            <button class="px-3 py-2 rounded-lg border border-[var(--hairline)]" onclick="toggleSkin()">🕹️ Retro</button>
-          </li>
         </ul>
       </details>
 
@@ -44,37 +41,12 @@ const isActive = (p:string) => samePath(current, to(p));
         {links.map(l => (
           <li>
             <a href={to(l.href)} aria-current={isActive(l.href)?'page':undefined}
-               class={`nav-pill nav-underline link-clean ${isActive(l.href)?'is-active bg-[var(--c-accent)] text-white':'hover:bg-[var(--c-accent-2)]/12'}`}>
+               class={`nav-pill link-clean ${isActive(l.href)?'is-active':''}`}>
               {l.label}
             </a>
           </li>
         ))}
-        <li class="flex items-center gap-2 ml-2">
-          <button class="px-3 py-2 rounded-lg border border-[var(--hairline)]" onclick="toggleSkin()">🕹️</button>
-        </li>
       </ul>
     </div>
   </div>
-
-  <script is:inline>
-    (function(){
-      const pref = localStorage.getItem('theme');
-      if(pref === 'dark') document.documentElement.classList.add('dark');
-      else if(!pref && window.matchMedia('(prefers-color-scheme: dark)').matches){
-        document.documentElement.classList.add('dark');
-      }
-      const skin = localStorage.getItem('skin');
-      if(skin === 'retro') document.documentElement.classList.add('retro');
-    })();
-    function toggleTheme(){
-      const el = document.documentElement;
-      el.classList.toggle('dark');
-      localStorage.setItem('theme', el.classList.contains('dark') ? 'dark' : 'light');
-    }
-    function toggleSkin(){
-      const el = document.documentElement;
-      el.classList.toggle('retro');
-      localStorage.setItem('skin', el.classList.contains('retro') ? 'retro' : 'default');
-    }
-  </script>
 </nav>

@@ -4,50 +4,29 @@ import { withBase as to } from "../lib/paths";
 ---
 
 <Base>
-  <section class="mt-16 mb-20 container-p">
-    <div class="hero-kicker"></div>
-    <h1 class="hero-title">Milton Quintana Moreno</h1>
-    <p class="hero-sub">Científico de Datos — Ingeniero Físico</p>
+  <section class="hero-section container-p">
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-8">
+      <img 
+        src={to("avatar.png")} 
+        alt="Milton Quintana Moreno" 
+        class="avatar-hero"
+        width="160"
+        height="160"
+      />
+      
+      <div class="flex-1 text-center md:text-left">
+        <h1 class="hero-title">Milton Quintana Moreno</h1>
+        <p class="hero-sub">Científico de Datos — Ingeniero Físico</p>
 
-    <!-- Terminal hero -->
-    <div class="term-header">
-      <div class="term-dots">
-        <span class="term-dot red"></span>
-        <span class="term-dot yellow"></span>
-        <span class="term-dot green"></span>
-      </div>
-      <span class="term-title">~/milton-blog</span>
-      <div class="term-body">
-        <!-- decorativo: sin alt para que no salga texto si falla -->
-        <img
-          src={to("avatar.svg")}
-          width="24"
-          height="24"
-          alt=""
-          class="logo-ring logo-img"
-        />
-      </div>
-    </div>
-    <div class="term-body text-left">
-      <div class="prompt mt-4">
-        <span class="ps">$</span><code>whoami</code>
-      </div>
-      <p class="mt-1 mb-3">Milton Quintana · Científico de Datos</p>
-      <div class="prompt"><span class="ps">$</span><code>ls ./</code></div>
-      <p class="mt-1">about/ projects/ publications/ skills/ contact/</p>
-      <div class="prompt">
-        <span class="ps">$</span><span class="cursor-blink" aria-hidden="true"
-        ></span>
+        <div class="hero-buttons justify-center md:justify-start">
+          <a class="btn btn-primary" href={to("about")}>Sobre mí</a>
+          <a class="btn btn-ghost" href={to("projects")}>Proyectos</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <div class="hero-buttons">
-    <a class="btn btn-primary" href={to("about")}>Sobre mí</a>
-    <a class="btn btn-ghost" href={to("projects")}>Proyectos</a>
-  </div>
-
-  <section class="grid sm:grid-cols-3 gap-7 mt-14 container-p">
+  <section class="grid sm:grid-cols-3 gap-6 mt-12 container-p">
     <div class="card">
       <h3>Últimos proyectos</h3>
       <p>Pipelines, dashboards y ML experiments.</p>
@@ -56,9 +35,7 @@ import { withBase as to } from "../lib/paths";
     <div class="card">
       <h3>Publicaciones</h3>
       <p>Modelado numérico y notas técnicas.</p>
-      <a class="btn btn-ghost mt-4" href={to("publications")}
-        >Ver publicaciones</a
-      >
+      <a class="btn btn-ghost mt-4" href={to("publications")}>Ver publicaciones</a>
     </div>
     <div class="card">
       <h3>Habilidades</h3>

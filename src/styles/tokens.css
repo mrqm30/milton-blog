@@ -1,47 +1,52 @@
 /* /src/styles/tokens.css */
 
 :root {
-  /* Fondo y texto principal */
-  --c-bg: #0A1118;
-  --c-ink: #E8EEF2;
-  --c-muted: #92A2AF;
+  /* Paleta minimalista monocromática */
+  --c-bg: #FAFAFA;
+  --c-ink: #1A1A1A;
+  --c-muted: #6B6B6B;
 
-  /* Acentos fríos científicos */
-  --c-accent: #13212F;
-  --c-accent-2: #233545;
-  --c-border: #1D2F3A;
+  /* Acentos sutiles */
+  --c-accent: #F5F5F5;
+  --c-accent-2: #E8E8E8;
+  --c-border: #E0E0E0;
 
   /* Superficies */
-  --surface: #0F1A23;
-  --surface-2: #0C141C;
+  --surface: #FFFFFF;
+  --surface-2: #F8F8F8;
 
-  /* Neón científico (bajo, no gamer) */
-  --neon: #7CFBD1;
-  --neon-weak: color-mix(in oklab, var(--neon) 18%, transparent);
+  /* Acento de color minimalista */
+  --accent-color: #2563EB;
+  --accent-hover: #1D4ED8;
 
-  --hairline: color-mix(in oklab, var(--c-border) 45%, transparent);
-  --grad-1: linear-gradient(90deg, var(--c-accent) 0%, var(--c-accent-2) 100%);
+  --hairline: var(--c-border);
+  
+  /* Profundidad mínima */
+  --shadow: 0 1px 3px rgba(0, 0, 0, .06);
+  --shadow-md: 0 2px 8px rgba(0, 0, 0, .08);
 
-  /* Profundidad y forma */
-  --blur: saturate(140%) blur(8px);
-  --shadow: 0 4px 14px rgba(0, 0, 0, .22);
-
-  --radius: 12px;
-  --r-sm: 8px;
+  --radius: 8px;
+  --r-sm: 4px;
 }
 
-/* Tema alterno “laboratorio retro” opcional */
-.retro {
-  --c-bg: #060E0F;
-  --c-ink: #E7FFF7;
-  --c-muted: #ADBEBA;
+/* Tema oscuro minimalista */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-bg: #0F0F0F;
+    --c-ink: #EDEDED;
+    --c-muted: #A0A0A0;
 
-  --c-accent: #122523;
-  --c-accent-2: #1C3B36;
+    --c-accent: #1A1A1A;
+    --c-accent-2: #262626;
+    --c-border: #2A2A2A;
 
-  --surface: #0C1917;
+    --surface: #171717;
+    --surface-2: #1A1A1A;
 
-  --neon: #6BFFD8;
-  --neon-weak: color-mix(in oklab, var(--neon) 20%, transparent);
-  --hairline: color-mix(in oklab, var(--neon) 12%, transparent);
+    --accent-color: #3B82F6;
+    --accent-hover: #60A5FA;
+
+    --shadow: 0 1px 3px rgba(0, 0, 0, .3);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, .4);
+  }
 }
